@@ -1,7 +1,6 @@
 "use strict";
 
-let sounds = ["./sounds/crash.mp3", "./sounds/kick-bass.mp3", "./sounds/snare.mp3", "./sounds/tom-1.mp3", "./sounds/tom-2.mp3", "./sounds/tom-3.mp3", "./sounds/tom-4.mp3"];
-
+//Event handler for clicks 
 let n = document.querySelectorAll(".drum").length;
 for (let i = 0; i < n; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
@@ -11,13 +10,14 @@ for (let i = 0; i < n; i++) {
     })
 }
 
-
+// Event handler for kepresses
 document.addEventListener("keypress",function(Event){
 let key=Event.key;
 makesound(key);
 animation(key);
 })
 
+// function for animate the clicked or pressed button
 function animation(key){
 document.querySelector("."+key).classList.add("pressed");
 setTimeout(function(){
@@ -26,6 +26,7 @@ setTimeout(function(){
 }
 
 
+// Function to make sounds on clicks and keypresses
 function makesound(key) {
     switch (key) {
         case "w":

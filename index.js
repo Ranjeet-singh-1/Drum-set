@@ -1,35 +1,17 @@
-"use strict";
-
-let sounds = ["./sounds/crash.mp3", "./sounds/kick-bass.mp3", "./sounds/snare.mp3", "./sounds/tom-1.mp3", "./sounds/tom-2.mp3", "./sounds/tom-3.mp3", "./sounds/tom-4.mp3"];
-
-let n = document.querySelectorAll(".drum").length;
-for (let i = 0; i < n; i++) {
-    document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-        let innerhtml = document.querySelectorAll(".drum")[i].innerHTML;
-        makesound(innerhtml);
-        animation(innerhtml);
-    })
+function handleClick(event) {    //event passed in function ad to readme.md  
+    const key = event.target.innerHTML;
+    makesound(key);
 }
 
-
-document.addEventListener("keypress",function(Event){
-let key=Event.key;
-makesound(key);
-animation(key);
+document.addEventListener('keypress', (e) => { //adding event listner to keypress ad to readme
+    const key = e.key;
+    makesound(key);
 })
 
-function animation(key){
-document.querySelector("."+key).classList.add("pressed");
-setTimeout(function(){
-    document.querySelector("."+key).classList.remove("pressed");
-},100);
-}
-
-
-function makesound(key) {
+const makesound = (key) => {
     switch (key) {
         case "w":
-            let crash = new Audio("./sounds/crash.mp3");
+            let crash = new Audio("./sounds/crash.mp3");   //syntax to play a sound add to readme.md
             crash.play();
             break;
         case "a":

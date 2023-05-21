@@ -1,6 +1,6 @@
 function handleClick(event) {    //event passed in function ad to readme.md  
     const key = event.target.innerHTML;
-    makesound(key);
+    makesound(key.trim()); //trim the whitespaces around text add to readme
 }
 
 document.addEventListener('keypress', (e) => { //adding event listner to keypress ad to readme
